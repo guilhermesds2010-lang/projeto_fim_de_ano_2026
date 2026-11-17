@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Doceria G&G</title>
+</head>
+<body>
+    <header>
+    <!-- Cabeçalho do Site-->
+     <div class="logo">
+        <h1>Doceria G&G</h1>
+        <p>Os melhores doces para matar a sua vontade</p>
+        </div>
+    </header>
+    <!--Menu de Naveação-->
+    <nav>
+        <!--A tag <a> cria um link
+            href define o endereço para onde o usuário será direcionado
+            target="_blank" abre o link em uma nova aba
+            -->
+        <div class="menu">
+        <a href="#inicio"> Início</a>
+        <a href="#produtos"> Produtos</a>
+        <a href="#sobre"> Sobre</a>
+        <a href="#contato"> Contato</a>
+        </div>
+
+         <!-- Grupo da direita do menu: tema e carrinho -->
+    <div class="acoes">
+      <!-- Botão que liga e desliga o modo escuro (o JavaScript controla).
+           id="botao-tema": nome único para o JavaScript encontrar o botão.
+           type="button": avisa que é um botão comum (não envia formulário). -->
+      <button id="botao-tema" class="botao-secundario" type="button">🌙 Modo Escuro</button>
+
+      <!-- Resumo do carrinho. O JavaScript atualiza os dois números.
+           <span> é uma etiqueta "em linha", ótima para trocar só um pedaço do texto. -->
+      <p class="carrinho">
+        🛒Carrinho: <span id="contador-carrinho">0</span> item(ns) |
+        <span id="total-carrinho">R$ 0,00</span>
+      </p>
+    </div>
+    </nav>
+
+    <!--Conteúdo Principal-->
+
+    <main>
+        <!--Seção Inicial-->
+        <section id="inicio">
+            <div class="banner">
+                <h2>Bem vindo a loja</h2>
+                <p>Confira nossos produtos</p>
+            </div>
+            </section>
+
+            <!--Seção de Produtos-->
+            <section id="produtos">
+                <h2> Nossos produtos</h2>
+                <!--div com produtos-->
+
+                <!--Produto 1-->
+                <div class="produtos">
+                    <article class="produto" data-id="1">
+                    <!--Imagens do Produto-->
+                     <h3>Banoffee (Fatia)</h3>
+                    <p class="preco">
+                        R$ 12,00</p>
+                    <img
+                    src="https://i.panelinha.com.br/i1/bk-2492-banoffee-receita.webp"
+                    alt="Banoffee">
+                        <!--Botão que abre o Modal-->
+                    <div class="botoes">
+                        <button
+                        type="button"
+                        class="botao-brilho"
+                        data-id="1">
+                        Comprar
+                        </button>
+                        <button class="botao-detalhes botao-secundario"
+                        type="button"
+                        data-id="1">
+                        Detalhes</button>
+                </div>
+                </article>
+            </div>
+            <!--Produto 2-->
+            <div class="produtos">
+            <article class="produto" data-id="2">
+                    <!--Imagens do Produto-->
+                    <h3>Torta de Limão (Fatia)</h3>
+                    <p class="preco">
+                        R$ 15,00</p>
+                    <img
+                    src="https://images.aws.nestle.recipes/original/efde94328c90a3df9c569a57186862e0_19_torta_limao.png"
+                    alt="Torta de Limão">
+                          <!--Botão que abre o Modal-->
+                        <div class="botoes">
+                        <button
+                        type="button"
+                        class="botao-brilho"
+                        data-id="2">
+                        Comprar
+                        </button>
+                        <button class="botao-detalhes botao-secundario"
+                        type="button"
+                        data-id="2">
+                        Detalhes</button>
+                        </div>
+                </article>
+            </div>
+
+            <!--Produto 3-->
+            <div class="produtos">
+                    <article class="produto" data-id="3">
+                    <!--Imagens do Produto-->
+                    <h3>Torta de Maçã (Fatia)</h3>
+                    <p class="preco">
+                        R$ 18,00</p>
+                    <img
+                    src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/8d3ddae24b173287367033382aa0c199.jpeg"
+                    alt="Torta de Maçã">
+                        <!--Botão que abre o Modal-->
+                        <div class="botoes">
+                            <button
+                            type="button"
+                            class="botao-brilho"
+                            data-id="3">
+                            Comprar
+                            </button>
+                            <button class="botao-detalhes botao-secundario"
+                            type="button"
+                            data-id="3">
+                            Detalhes</button>
+                        </div>
+                    </article>
+                </div>
+
+            <!--Produto 4-->
+            <div class="produtos">
+                    <article class="produto" data-id="4">
+                    <!--Imagens do Produto-->
+                    <h3>Torta Cookie (Fatia)</h3>
+                    <p class="preco">
+                        R$ 10,00</p>
+                    <img
+                    src="https://www.receiteria.com.br/wp-content/uploads/torta-de-cookie-com-recheio-de-nutella.jpeg"
+                    alt="Torta Cookie">
+                          <!--Botão que abre o Modal-->
+                          <div class="botoes">
+                            <button
+                            type="button"
+                            class="botao-brilho"
+                            data-id="4">
+                            Comprar
+                            </button>
+                            <button class="botao-detalhes botao-secundario"
+                            type="button"
+                            data-id="4">
+                            Detalhes
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!--Sobre a Loja-->
+            <section id="sobre">
+                <div class="sobre">
+                    <h2>Sobre a loja</h2>
+                    <p>Somos dois irmãos apaixonados por doces e pela arte de transformar ingredientes em momentos especiais. Nossa doceria nasceu da vontade de compartilhar sabores deliciosos, preparar doces com carinho e levar um pouco de felicidade para cada pessoa.</p>
+                    <p>Acreditamos que cada doce tem o poder de tornar momentos simples em lembranças inesquecíveis. Por isso, buscamos preparar cada receita com dedicação, capricho e muito amor.</p>
+                </div>
+            </section>
+
+            <!--Seção de Contatos-->
+            <section id="contato">
+                <div class="contato">
+                <h2>Contatos</h2>
+                <p>Email: contatos@doceriageg.com</p>
+            </div>
+            </section>
+            <!--Seção de Contatos (Formulário)-->
+            <section id="formulario">
+                <div class="formulario">
+                <h2>Cadastro</h2>
+                    <form action="#" method="post" id="formulario-contato">
+                        <!-- Campo para o nome -->
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                        <!-- Campo para o email -->
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                        <!-- Campo para o telefone -->
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="Digite seu número de telefone" required>
+                        <!--Campo para escolher o assunto-->
+                        <label for="assunto">Assunto:</label>
+                        <select id="assunto" name="assunto">
+                            <option value="duvida">Dúvida</option>
+                            <option value="elogio">Elogio</option>
+                            <option value="reclamacao">Reclamação</option>
+                        </select>
+                        <!-- Campo para a mensagem -->
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Deixe sua mensagem" required></textarea>
+                        <button type="submit">Enviar</button>
+                        <p id="mensagem-formulario" aria-live="polite"></p>
+                    </form>
+                </div>
+            </section>
+            </main>
+
+            <!--FOOTER sempre fora do main-->
+            <!--FOOTER (rodapé)-->
+            <footer>
+                <div class="rodape">
+                    <p>Desde 2026 - Doceria G&G</p>
+                </div>
+            </footer>
+            <!-- ========================================================
+       JANELA DE DETALHES (modal)
+       Fica escondida (o CSS usa display: none) e só aparece quando
+       o JavaScript adiciona a classe "aberto".
+       role="dialog": avisa aos leitores de tela que é uma janela.
+       aria-modal="true": o resto da página fica em segundo plano.
+       aria-labelledby: aponta para o título da janela.
+       ======================================================== -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="modal-conteudo">
+      <h3 id="modal-titulo">Produto</h3>
+      <p id="modal-descricao"></p>
+      <p id="modal-preco" class="preco"></p>
+      <div class="botoes">
+        <button id="modal-comprar" type="button">Adicionar ao carrinho</button>
+        <button id="modal-fechar" class="botao-secundario" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso rápido (aparece por alguns segundos ao comprar) -->
+  <div id="aviso" class="aviso" role="status" aria-live="polite"></div>
+</body>
+</html>

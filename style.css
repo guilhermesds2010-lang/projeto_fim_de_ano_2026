@@ -1,0 +1,478 @@
+/*Configuações Gerais*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(179, 137, 82);
+    background-image: url(Imagens-do-Site/fundo-doceria.png);
+    background-repeat: repeat;
+    background-size: 500px;
+    color:bisque;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/*Cabeçalho*/
+header {
+    font-family: 'Brush Script MT', sans-serif;
+    background: repeating-linear-gradient(90deg, rgb(88, 43, 0) 0px, rgb(88, 43, 0) 30px, rgb(104, 50, 11) 30px, rgb(104, 50, 11) 60px);
+    color: goldenrod;
+    padding: 25px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+}
+.logo h1{
+    font-size: 50px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.logo p {
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/*Menu de Navegação*/
+nav {
+    background-color: rgb(104, 50, 11);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    position: sticky;
+    top: 134px;
+    border: 1px solid darkgoldenrod;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.menu a {
+    color: bisque;
+    text-decoration: none;
+}
+.menu a:hover {
+    color: bisque;
+}
+/*Conteúdo Principal*/
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+section {
+  padding: 36px 0;
+  /* Ao clicar em um link do menu, a seção para um pouco abaixo do menu
+     fixo, em vez de ficar escondida atrás dele. */
+  scroll-margin-top: 220px;
+}
+/*Banner*/
+.banner {
+    background-color: rgb(126, 75, 39);
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    border: 1px solid rgb(88, 43, 0);
+}
+.banner h2 {
+    margin-bottom: 15px;
+}
+/*Seção de Produtos*/
+#produtos {
+    text-align: center;
+    padding: 20px;
+}
+#produtos h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    color: rgb(88, 43, 0);
+}
+/*div que organiza os produtos*/
+.lista-produtos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+/*Cartão do Produto*/
+.produtos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:burlywood;
+    padding: 15px;
+    width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    margin-bottom: 20px;
+}
+/*imagem do produto*/
+.produtos img {
+    width: 100%;
+    aspect-ratio: 8/5; /* Mantém a proporção da imagem */
+    object-fit: cover;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 13px;
+}
+/*nome do produto*/
+.produtos h3 {
+    margin: 15px 0 10px;
+    color: rgb(126, 75, 39);
+}
+/*preço do produto*/
+.produtos p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: rgb(126, 75, 39);
+}
+/*botão de compra*/
+/*.botão-comprar {
+    background-color: chocolate;
+    color: bisque;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}*/
+/*Efeito de hover no botão de compra*/
+/*.botão-comprar:hover {
+    background-color: darkorange;
+}*/
+/*seção de sobre*/
+.sobre {
+    background-color: rgb(155, 95, 35);
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    border: 1px solid rgb(88, 43, 0);
+}
+.sobre h2 {
+    margin-bottom: 15px;
+}
+.sobre p {
+    max-width: 800px;
+    margin: 0 auto 15px;
+    line-height: 1.6;
+}
+/*seção de contato*/
+.contato {
+    background-color: rgb(117, 72, 27);
+    padding: 40px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid rgb(88, 43, 0);
+}
+.contato h2 {
+    margin-bottom: 15px;
+}
+/*Rodapé*/
+footer {
+    background-color: rgb(104, 50, 11);
+    color: black;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
+    border: 1px solid rgb(88, 43, 0);
+}
+/*Estilos do Modal*/
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fixa na tela */
+    z-index: 1; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgb(0,0,0); /* Fundo preto com opacidade */
+    background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+}
+.modal.aberto {
+    display: block; /* Mostra o modal quando aberto */
+}
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    max-width: 500px; /* Largura máxima do modal */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+/*imagem do produto no modal*/
+.modal-conteudo img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+/*Botão de Fechar do Modal*/
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+*/
+
+/*Fomulário de contato*/
+#contato {
+    background-color: burlywood;
+    padding: 40px;
+    margin-top: 30px;
+}
+#contato h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+/*Formulário de contato*/
+#formulario form {
+    max-width: 600px;
+    margin: auto;
+}
+.formulario h2 {
+    margin-bottom: 30px;
+}
+/*Textos dos campos do formulário*/
+#formulario label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+/*Campos de texto*/
+#formulario input,
+#formulario textarea{
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+#formulario select {
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+/*Área da mensagem*/
+#formulario textarea {
+    resize: vertical;
+}
+/*Botão*/
+#formulario button {
+    width: 100%;
+    margin-top: 20px;
+    background-color: darkgoldenrod;
+    color: bisque;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+/*Botão de Brilho*/
+.botao-brilho {
+    background-color: rgb(160, 109, 0);
+    color: bisque;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.botao-brilho:hover {
+    background-color: goldenrod;
+    box-shadow: 0 0 10px rgb(233, 181, 51);
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 192, 20);
+}
+.botao-brilho::selection {
+    background: none;
+}
+.formulario button:hover {
+    background-color: goldenrod;
+    box-shadow: 0 0 10px rgb(233, 181, 51);
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 192, 20);
+}
+
+body.escuro {
+    background-color: rgb(126, 75, 39);
+    background-image: url("Imagens-do-Site/fundo-doceria-escuro.png");
+    color: bisque;
+}
+
+body.escuro .produto {
+    background-color: burlywood;
+}
+
+body.escuro #produtos h2{
+    color: bisque;
+}
+
+body.escuro .banner {
+    background-color: rgb(126, 75, 39);
+}
+
+body.escuro .sobre {
+    background-color: rgb(155, 95, 35);
+}
+
+body.escuro .contato {
+    background-color: rgb(117, 72, 27);
+}
+
+body.escuro footer {
+    background-color: rgb(104, 50, 11);
+}
+.erro {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.sucesso {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* Botão secundário: contorno, sem preenchimento */
+.botao-secundario {
+    background-color: rgb(160, 109, 0);
+    color: bisque;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.botao-secundario:hover {
+    background-color: goldenrod;
+    box-shadow: 0 0 10px rgb(233, 181, 51);
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 192, 20);
+}
+/* A janela cobre a tela toda, mas começa ESCONDIDA */
+.modal {
+  display: none;              /* escondida */
+  position: fixed;            /* fica fixa na tela, mesmo ao rolar */
+  inset: 0;                   /* atalho: top, right, bottom e left = 0 (tela toda) */
+  background-color: rgba(0, 0, 0, 0.6); /* fundo preto semitransparente */
+  align-items: center;        /* centraliza na vertical */
+  justify-content: center;    /* centraliza na horizontal */
+  padding: 20px;
+  z-index: 100;               /* fica acima de tudo */
+}
+
+/* O JavaScript adiciona a classe "aberto" e a janela aparece */
+.modal.aberto {
+  display: flex;
+}
+
+/* Caixa branca no centro */
+.modal-conteudo {
+  background-color: bisque;
+  color: rgb(88, 43, 0);
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 420px;
+  border-top: 6px solid rgb(126, 75, 39) ;
+}
+
+.modal-conteudo h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.modal-conteudo .botoes {
+  justify-content: flex-start;
+}
+
+/* Aviso rápido no canto de baixo da tela */
+.aviso {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;                               /* começa no meio da tela... */
+  transform: translateX(-50%) translateY(20px); /* ...e desloca metade da largura para centralizar */
+  background-color: rgb(126, 75, 39);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: 2px solid rgb(88, 43, 0);
+  opacity: 0;                              /* invisível */
+  pointer-events: none;                    /* não bloqueia cliques quando invisível */
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 200;
+}
+
+/* Com a classe "visivel" (JavaScript), o aviso aparece */
+.aviso.visivel {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+/* MEDIA QUERY: regras que só valem quando a condição é verdadeira.
+   Aqui: em telas com até 600px de largura (celulares). */
+@media (max-width: 600px) {
+  nav {
+    justify-content: center;  /* centraliza os grupos do menu */
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .logo h2 {
+    font-size: 1.7rem;        /* título menor no celular */
+  }
+
+  .banner {
+    padding: 32px 12px;
+  }
+
+  .banner-texto {
+    padding: 18px 20px;
+  }
+
+  .produto {
+    width: 100%;              /* o cartão ocupa a largura toda */
+    max-width: 340px;
+  }
+}
+
+/* Mostra um contorno bem visível quando alguém navega pelo teclado (tecla Tab) */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 2px;
+}
+
+/* Respeita quem configurou o sistema para reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
