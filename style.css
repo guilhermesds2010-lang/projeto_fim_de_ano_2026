@@ -106,7 +106,7 @@ section {
     margin-right: auto;
     background-color:burlywood;
     padding: 15px;
-    width: 800px;
+    width: 260px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.339);
     margin-bottom: 20px;
@@ -243,6 +243,7 @@ footer {
 }
 .formulario h2 {
     margin-bottom: 30px;
+    color: rgb(88, 43, 0);
 }
 /*Textos dos campos do formulário*/
 #formulario label {
@@ -251,6 +252,7 @@ footer {
     text-align: left;
     margin-bottom: 5px;
     margin-top: 5px;
+    color: rgb(88, 43, 0);
 }
 /*Campos de texto*/
 #formulario input,
@@ -273,10 +275,10 @@ footer {
     resize: vertical;
 }
 /*Botão*/
-#formulario button {
+.formulario button {
     width: 100%;
     margin-top: 20px;
-    background-color: darkgoldenrod;
+    background-color: rgb(160, 109, 0);
     color: bisque;
     padding: 10px 20px;
     border: none;
@@ -284,6 +286,12 @@ footer {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 18px;
+}
+.formulario button:hover {
+    background-color: goldenrod;
+    box-shadow: 0 0 10px rgb(233, 181, 51);
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 192, 20);
 }
 /*Botão de Brilho*/
 .botao-brilho {
@@ -308,13 +316,28 @@ footer {
 .botao-brilho::selection {
     background: none;
 }
-.formulario button:hover {
-    background-color: goldenrod;
-    box-shadow: 0 0 10px rgb(233, 181, 51);
-    transform: scale(1.05);
-    border: 2px solid rgb(255, 192, 20);
+/*Modo Escuro*/
+#botao-tema {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 23px;
+    cursor: pointer;
+
+    background-color: rgb(179, 137, 82);
+    transition: 0.3s;
 }
 
+#botao-tema:hover {
+    transform: scale(1.1);
+}
 body.escuro {
     background-color: rgb(126, 75, 39);
     background-image: url("Imagens-do-Site/fundo-doceria-escuro.png");
@@ -339,6 +362,14 @@ body.escuro .sobre {
 
 body.escuro .contato {
     background-color: rgb(117, 72, 27);
+}
+
+body.escuro .formulario h2 {
+    color: bisque;
+}
+
+body.escuro #formulario label {
+    color: bisque;
 }
 
 body.escuro footer {
@@ -475,4 +506,109 @@ button:focus-visible {
   * {
     transition: none !important;
   }
+}
+/* Área dos produtos no carrinho */
+.modal-carrinho {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-carrinho.aberto {
+    display: flex;
+}
+
+.conteudo-carrinho {
+    background-color: bisque;
+    color: #4b260e;
+
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.botao-carrinho {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 999;
+
+    background-color: rgb(160, 109, 0);
+    border-color:#4b260e;
+    box-shadow:rgba(0, 0, 0, 0.671);
+
+    width: 60px;
+    height: 60px;
+    border-radius: 40%;
+
+    cursor: pointer;
+}
+.itens-carrinho {
+    background-color: burlywood;
+    color: #4b260e;
+    border-radius: 8px;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 350px;
+}
+
+/* Cada produto */
+.item-carrinho {
+    padding: 12px;
+    border-bottom: 1px solid rgb(104, 50, 11);
+}
+
+/* Informações do produto */
+.item-carrinho p {
+    margin-bottom: 5px;
+}
+
+/* Botão remover */
+.remover-produto {
+    background-color: brown;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remover-produto:hover {
+    background-color: darkred;
+}
+#finalizar-compra {
+    background-color: rgb(179, 137, 82);
+    color: white;
+
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#finalizar-compra:hover {
+    background-color: rgb(145, 105, 55);
+    transform: scale(1.04);
+}
+
+.conteudo-carrinho h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }

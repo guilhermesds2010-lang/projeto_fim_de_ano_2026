@@ -33,15 +33,35 @@
       <!-- Botão que liga e desliga o modo escuro (o JavaScript controla).
            id="botao-tema": nome único para o JavaScript encontrar o botão.
            type="button": avisa que é um botão comum (não envia formulário). -->
-      <button id="botao-tema" class="botao-secundario" type="button">🌙 Modo Escuro</button>
+      <button id="botao-tema" aria-label="Ativar modo escuro">
+    ☀️
+</button>
 
       <!-- Resumo do carrinho. O JavaScript atualiza os dois números.
            <span> é uma etiqueta "em linha", ótima para trocar só um pedaço do texto. -->
-      <p class="carrinho">
-        🛒Carrinho: <span id="contador-carrinho">0</span> item(ns) |
-        <span id="total-carrinho">R$ 0,00</span>
-      </p>
-    </div>
+      
+      <!-- Botão flutuante do carrinho -->
+       <button id="botao-carrinho" class="botao-carrinho">🛒
+        <span id="contador-carrinho">0</span>
+       </button>
+
+       <!-- janela do carrinho -->
+        <div id="modal-carrinho" class="modal-carrinho">
+            <div class="conteudo-carrinho">
+
+                <button id="fechar-carrinho">X</button>
+
+                <h2>Meu Carrinho</h2>
+
+                <div id="itens-carrinho"></div>
+
+                <p>Total: R$ <span id="total-carrinho">0,00</span></p>
+
+                <button id="finalizar-compra">
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
     </nav>
 
     <!--Conteúdo Principal-->
@@ -68,7 +88,7 @@
                     <p class="preco">
                         R$ 12,00</p>
                     <img
-                    src="https://i.panelinha.com.br/i1/bk-2492-banoffee-receita.webp"
+                    src="Imagens-do-Site/Banoffee.webp"
                     alt="Banoffee">
                         <!--Botão que abre o Modal-->
                     <div class="botoes">
@@ -93,7 +113,7 @@
                     <p class="preco">
                         R$ 15,00</p>
                     <img
-                    src="https://images.aws.nestle.recipes/original/efde94328c90a3df9c569a57186862e0_19_torta_limao.png"
+                    src="Imagens-do-Site/Torta de Limão.png"
                     alt="Torta de Limão">
                           <!--Botão que abre o Modal-->
                         <div class="botoes">
@@ -119,7 +139,7 @@
                     <p class="preco">
                         R$ 18,00</p>
                     <img
-                    src="https://www.receitasnestle.com.br/sites/default/files/srh_recipes/8d3ddae24b173287367033382aa0c199.jpeg"
+                    src="Imagens-do-Site/Torta de Maçã.avif"
                     alt="Torta de Maçã">
                         <!--Botão que abre o Modal-->
                         <div class="botoes">
@@ -145,7 +165,7 @@
                     <p class="preco">
                         R$ 10,00</p>
                     <img
-                    src="https://www.receiteria.com.br/wp-content/uploads/torta-de-cookie-com-recheio-de-nutella.jpeg"
+                    src="Imagens-do-Site/Torta Cookie.webp"
                     alt="Torta Cookie">
                           <!--Botão que abre o Modal-->
                           <div class="botoes">
@@ -181,7 +201,7 @@
                 <p>Email: contatos@doceriageg.com</p>
             </div>
             </section>
-            <!--Seção de Contatos (Formulário)-->
+            <!--Seção de Formulário-->
             <section id="formulario">
                 <div class="formulario">
                 <h2>Cadastro</h2>

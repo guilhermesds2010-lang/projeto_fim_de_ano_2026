@@ -2,8 +2,34 @@
  const nomeDaLoja = 'Doceria G&G';
 
     // Número (number): sem aspas. Será alterado, então usamos let.
-    let quantidadeNoCarrinho = 0;
-    let totalNoCarrinho = 0;
+    let carrinho = [];
+
+    [
+      {
+        id: 1,
+        nome: 'Banoffee (Fatia)',
+        preco: 12.00,
+        quantidade: 1
+      },
+      {
+        id: 2,
+        nome: 'Torta de Limão (Fatia)',
+        preco: 15.00,
+        quantidade: 1
+      },
+      {
+        id: 3,
+        nome: 'Torta de Maçã (Fatia)',
+        preco: 18.00,
+        quantidade: 1
+      },
+      {
+        id: 4,
+        nome: 'Torta Cookie (Fatia)',
+        preco: 10.00,
+        quantidade: 1
+      }
+    ]
 
     // Verdadeiro ou falso (boolean): só aceita true ou false.
     const lojaAberta = true;
@@ -54,7 +80,7 @@
     //const resultadoSaudacao = document.querySelector('#resultado-saudacao');
 
     // Elementos do formulário
-    const formulario = document.querySelector('#formulario-contato');
+    const formularioContato = document.querySelector('#formulario-contato');
     const campoNome = document.querySelector('#nome');
     const mensagemFormulario = document.querySelector('#mensagem-formulario');
 
@@ -132,37 +158,186 @@
 
     // --- Função 3: atualiza o resumo do carrinho na tela
     function atualizarCarrinho() {
-      // textContent troca o texto de um elemento
-      contadorCarrinho.textContent = quantidadeNoCarrinho;
-      totalCarrinho.textContent = formatarPreco(totalNoCarrinho);
+
+      // Soma a quantidade de todos os produtos
+      const quantidadeTotal = carrinho.reduce(
+        (soma, item) => soma + item.quantidade, 0);
+
+      // Calcula o valor total da compra
+      const valorTotal = carrinho.reduce(
+        (soma, item) => soma + (item.preco * item.quantidade), 0);
+
+        // Atualiza as informações na página
+        contadorCarrinho.textContent = quantidadeTotal;
+        totalCarrinho.textContent = formatarPreco(valorTotal);
+
+        // Atualiza a lista de produtos
+        mostrarProdutosCarrinho();
     }
 
     // --- Função 4: coloca um produto no carrinho
     function adicionarAoCarrinho(idDoProduto) {
-      // find percorre o array e devolve o PRIMEIRO produto cujo id combina.
-      // "item => item.id === idDoProduto" é uma arrow function (função curta).
-      // === compara valor E tipo.
-      const produto = produtos.find(item => item.id === idDoProduto);
 
-      // Condicional: se não achou o produto (valor "undefined"), avisa e para.
-      // O "!" significa "não".
-      if (!produto) {
-        console.log('Produto não encontrado: ' + idDoProduto);
-        return; // return sem valor encerra a função aqui
-      }
+    // Procura o produto no array de produtos
+    const produto = produtos.find(
+        item => item.id === idDoProduto
+    );
 
-      // ++ soma 1 à variável.
-      quantidadeNoCarrinho++;
-      // += soma o preço ao total (é o mesmo que total = total + preço).
-      totalNoCarrinho += produto.preco;
-
-      // Mostra os novos valores na tela e avisa o usuário
-      atualizarCarrinho();
-      mostrarAviso(`${produto.nome} foi adicionado ao carrinho!`);
-
-      // Registra no console para o programador acompanhar
-      console.log(`Carrinho: ${quantidadeNoCarrinho} item(ns), total ${formatarPreco(totalNoCarrinho)}`);
+    // Verifica se o produto existe
+    if (!produto) {
+        console.log('Produto não encontrado:', idDoProduto);
+        return;
     }
+
+    // Verifica se o produto já está no carrinho
+    const produtoExistente = carrinho.find(
+        item => item.id === idDoProduto
+    );
+
+    if (produtoExistente) {
+
+        // Se já existe, aumenta a quantidade
+        produtoExistente.quantidade++;
+
+    } else {
+
+        // Se não existe, adiciona ao carrinho
+        carrinho.push({
+            ...produto,
+            quantidade: 1
+        });
+
+    }
+
+    // Atualiza as informações do carrinho
+    atualizarCarrinho();
+
+    // Mostra o aviso de compra
+    mostrarAviso(`${produto.nome} foi adicionado ao carrinho!`);
+
+    console.log('Carrinho atualizado:', carrinho);
+}
+
+// --- Função 5: Mostrar os produtos no carrinho
+const itensCarrinho = document.querySelector('#itens-carrinho');
+
+function mostrarProdutosCarrinho() {
+  // Limpa a visualização anterior
+    itensCarrinho.innerHTML = '';
+
+    // Verifica se o carrinho está vazio
+    if (carrinho.length === 0) {
+
+        itensCarrinho.innerHTML = '<p>Seu carrinho está vazio.</p>';
+
+        return;
+    }
+
+    // Percorre todos os produtos do carrinho
+    carrinho.forEach(item => {
+
+        const elemento = document.createElement('div');
+
+        elemento.classList.add('item-carrinho');
+
+        elemento.innerHTML = `
+            <p>${item.nome}</p>
+
+            <p>
+                ${item.quantidade} x ${formatarPreco(item.preco)}
+            </p>
+
+            <p>
+                Subtotal: ${formatarPreco(item.preco * item.quantidade)}
+            </p>
+
+            <button
+                type="button"
+                class="remover-produto"
+                data-id="${item.id}">
+                Remover
+            </button>
+        `;
+
+        itensCarrinho.appendChild(elemento);
+
+    });
+}
+
+// --- Função 6: Remover um produto do carrinho
+function removerDoCarrinho(idDoProduto) {
+
+    // Encontra a posição do produto no carrinho
+    const indice = carrinho.findIndex(
+        item => item.id === idDoProduto
+    );
+
+    // Verifica se encontrou o produto
+    if (indice === -1) return;
+
+    // Diminui a quantidade
+    carrinho[indice].quantidade--;
+
+    // Se a quantidade chegar a zero, remove o produto
+    if (carrinho[indice].quantidade === 0) {
+
+        carrinho.splice(indice, 1);
+
+    }
+
+    // Atualiza o carrinho
+    atualizarCarrinho();
+}
+
+//Funcionamento do botão remover
+itensCarrinho.addEventListener('click', (evento) => {
+
+    if (evento.target.classList.contains('remover-produto')) {
+
+        const idDoProduto = Number(evento.target.dataset.id);
+
+        removerDoCarrinho(idDoProduto);
+
+    }
+
+});
+
+// Função 7: Botão do Carrinho
+const botaoCarrinho = document.querySelector('#botao-carrinho');
+const modalCarrinho = document.querySelector('#modal-carrinho');
+const fecharCarrinho = document.querySelector('#fechar-carrinho');
+
+botaoCarrinho.addEventListener('click', () => {
+    modalCarrinho.classList.add('aberto');
+});
+
+fecharCarrinho.addEventListener('click', () => {
+    modalCarrinho.classList.remove('aberto');
+});
+
+// Função 8: Finalizar Compra e Vericar Cadastro
+const finalizarCompra = document.querySelector('#finalizar-compra');
+const formularioCadastro = document.querySelector('#formulario-contato');
+
+finalizarCompra.addEventListener('click', () => {
+    if (carrinho.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+    }
+
+    if (!formularioCadastro.checkValidity()) {
+        modalCarrinho.classList.remove('aberto');
+
+        formularioCadastro.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        formularioCadastro.reportValidity();
+        return;
+    }
+
+    // Continuar com a finalização da compra
+});
 
 
     // ==========================================================
@@ -269,7 +444,7 @@
       // classList.contains devolve true se a classe existe
       const estaEscuro = document.body.classList.contains('escuro');
       // Operador ternário: condição ? valorSeVerdadeiro : valorSeFalso
-      botaoTema.textContent = estaEscuro ? 'Modo claro' : 'Modo escuro';
+      botaoTema.textContent = estaEscuro ? '☀️' : '🌙';
     }
 
     // Ao abrir a página: se o tema guardado era o escuro, aplica de novo
@@ -328,7 +503,7 @@
     // Por padrão, o navegador recarregaria a página.
     // evento.preventDefault() cancela esse comportamento, e assim
     // podemos verificar os dados antes.
-    formulario.addEventListener('submit', (evento) => {
+    formularioContato.addEventListener('submit', (evento) => {
       evento.preventDefault();
 
       // Lê o nome digitado, sem espaços nas pontas
